@@ -16,6 +16,7 @@ body {
    Dial per-image by adjusting opacity or removing the class. */
 .img-tint { position: relative; }
 .img-tint img { filter: saturate(.96) sepia(.08) brightness(1.03); }
+.img-tint video { filter: saturate(.96) sepia(.08) brightness(1.03); }
 
 /* Consistent warm grade on band + hero */
 .grade-warm img { filter: saturate(.98) sepia(.06); }
