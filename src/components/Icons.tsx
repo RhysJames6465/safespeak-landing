@@ -18,6 +18,24 @@ export const MicIcon = (p: { className?: string }) => (
   </svg>
 );
 
+export const ListIcon = (p: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={p.className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+    <path d="M8 6h13M8 12h13M8 18h13" />
+    <path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01" strokeWidth="2.4" />
+  </svg>
+);
+
+export const HandCheckIcon = (p: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={p.className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M18 11V6.5a1.5 1.5 0 0 0-3 0V11" />
+    <path d="M14 10V4.5a1.5 1.5 0 0 0-3 0V10" />
+    <path d="M10 10.5V6.5a1.5 1.5 0 0 0-3 0V12" />
+    <path d="M18 8.5a1.5 1.5 0 1 1 3 0V14a8 8 0 0 1-8 8h-2.2c-2.7 0-4.4-.8-5.9-2.3l-3.4-3.4a2 2 0 0 1 2.8-2.8L7 15" />
+    <circle cx="18.7" cy="18.4" r="3" />
+    <path d="m17.4 18.4 1.1 1.1 2-2.4" />
+  </svg>
+);
+
 export const ShieldIcon = (p: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={p.className} fill="none" aria-hidden="true">
     <path fillRule="evenodd" clipRule="evenodd" d="M17 3.8H7C5.78 3.8 4.8 4.78 4.8 6v9.76c0 .81.44 1.55 1.16 1.94l5 2.69c.65.35 1.43.35 2.08 0l5-2.69c.72-.39 1.16-1.13 1.16-1.94V6c0-1.22-.98-2.2-2.2-2.2ZM7 2C4.79 2 3 3.79 3 6v9.76c0 1.47.81 2.83 2.1 3.52l5 2.7a4 4 0 0 0 3.8 0l5-2.7A4 4 0 0 0 21 15.76V6c0-2.21-1.79-4-4-4H7Z" fill="currentColor" />
