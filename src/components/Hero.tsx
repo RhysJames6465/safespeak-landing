@@ -37,20 +37,6 @@ export default function Hero({ t, locale }: { t: Dict; locale: string }) {
       </div>
       <div id="tell">
         <TryItBox t={t} lang={locale} />
-        {/* Desktop: scam-check photo beside the demo. Hidden below md (band breakpoint). */}
-        <figure className="mt-6 hidden md:block">
-          <div className="img-tint overflow-hidden rounded-2xl">
-            <Image
-              src="/images/scamcheck.webp"
-              alt={t.altScam}
-              width={1448}
-              height={1086}
-              className="h-64 w-full object-cover object-[44%_65%] lg:h-72"
-              loading="lazy"
-            />
-          </div>
-          <figcaption className="mt-3 text-xs text-brand-muted">{t.capScam}</figcaption>
-        </figure>
       </div>
     </section>
   );

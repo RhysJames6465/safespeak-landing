@@ -7,6 +7,7 @@ const cards = [
   { key: 'p3', img: '/images/story-3.webp', alt: 'altCard3', primary: false },
   { key: 'p4', img: '/images/story-4.webp', alt: 'altCard4', primary: false },
   { key: 'p5', img: '/images/story-5.webp', alt: 'altCard5', primary: false },
+  { key: 'capScam', img: '/images/scamcheck.webp', alt: 'altScam', primary: false },
 ] as const;
 
 export default function Stories({ t }: { t: Dict }) {
