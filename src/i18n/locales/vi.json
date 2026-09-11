@@ -76,7 +76,7 @@
   "audFd": "Hỗ trợ làm cha mẹ, giúp đỡ các vấn đề trường học, dịch vụ gia đình.",
   "audY": "Thanh thiếu niên và ngườ​i trẻ",
   "audYd": "Hỗ trợ học đường và bắt nạt, an toàn trực tuyến, tư vấn thanh thiếu niên.",
-  "supNote": "Chỉ để tham khảo — đây là ví dụ về các loạ​i hỗ trợ, không phải danh bạ đầy đủ. SafeSpeak không phải dịch vụ tư vấn hay cấp cứu.",
+  "supNote": "SafeSpeak không phải là dịch vụ tư vấn hay dịch vụ khẩn cấp.",
   "altSupportW": "Một ngườ​i phụ nữ ở nhà cạnh cửa sổ.",
   "altSupportS": "Một phụ nữ lớn tuổ​i ngồi trên ghế công viên.",
   "altSupportF": "Một gia đình với các con bên ngoài ngôi nhà.",
@@ -125,5 +125,8 @@
   "pv4h": "An toàn tài khoản",
   "pv4p": "SafeSpeak không yêu cầu tài khoản. Tránh lưu mật khẩu nơi ngườ​i khác có thể thấy.",
   "pv5h": "Lưu giữ bằng chứng",
-  "pv5p": "Chỉ lưu bản sao tin nhắn hoặc ảnh khi an toàn. Cất chúng ở nơi riêng tư."
+  "pv5p": "Chỉ lưu bản sao tin nhắn hoặc ảnh khi an toàn. Cất chúng ở nơi riêng tư.",
+  "navUrgent": "Hỗ trợ khẩn cấp",
+  "navTalk": "Trò chuyện với ai đó",
+  "navLegal": "Pháp lý & quyền riêng tư"
 }

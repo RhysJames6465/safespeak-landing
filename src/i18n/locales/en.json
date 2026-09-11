@@ -121,9 +121,12 @@
   "audFd": "Parenting support, help with school issues, family services.",
   "audY": "Youth and young people",
   "audYd": "School and bullying support, online safety help, youth counselling.",
-  "supNote": "Information only — these are examples of support types, not a full directory. SafeSpeak is not a counselling or emergency service.",
+  "supNote": "SafeSpeak is not a counselling or emergency service.",
   "altSupportW": "A woman at home by a window.",
   "altSupportS": "An older woman sitting on a park bench.",
   "altSupportF": "A family with children outside their home.",
-  "altSupportY": "A young man looking at his phone in bed at night."
+  "altSupportY": "A young man looking at his phone in bed at night.",
+  "navUrgent": "Urgent help",
+  "navTalk": "Talk to someone",
+  "navLegal": "Legal & privacy"
 }

@@ -15,18 +15,18 @@ const audiences = [
 ] as const;
 
 const helplines = [
-  { name: 'Lifeline', num: '13 11 14', tel: '131114', desc: 'dLife' },
-  { name: '1800RESPECT', num: '1800 737 732', tel: '1800737732', desc: 'dResp' },
-  { name: '13YARN', num: '13 92 76', tel: '139276', desc: 'dYarn' },
+  { name: 'Lifeline', num: '13 11 14', tel: '131114', desc: 'dLife', web: 'https://www.lifeline.org.au' },
+  { name: '1800RESPECT', num: '1800 737 732', tel: '1800737732', desc: 'dResp', web: 'https://www.1800respect.org.au' },
+  { name: '13YARN', num: '13 92 76', tel: '139276', desc: 'dYarn', web: 'https://www.13yarn.org.au' },
   { name: 'Beyond Blue', num: '1300 22 4636', tel: '1300224636', desc: 'dBlue', web: 'https://www.beyondblue.org.au' },
 ] as const;
 
 const questions = ['q1', 'q2', 'q3', 'q4'] as const;
 
 const legalRows = [
-  { name: 'lAid', desc: 'dAid', url: 'https://www.legalaid.nsw.gov.au' },
-  { name: 'lClc', desc: 'dClc', url: 'https://clc.org.au' },
-  { name: 'lFw', desc: 'dFw', url: 'https://www.fairwork.gov.au' },
+  { name: 'lAid', desc: 'dAid', url: 'https://www.legalaid.nsw.gov.au', host: 'legalaid.nsw.gov.au' },
+  { name: 'lClc', desc: 'dClc', url: 'https://clc.org.au', host: 'clc.org.au' },
+  { name: 'lFw', desc: 'dFw', url: 'https://www.fairwork.gov.au', host: 'fairwork.gov.au' },
 ] as const;
 
 const privacyItems = ['pv1', 'pv2', 'pv3', 'pv4', 'pv5'] as const;
@@ -67,6 +67,15 @@ export default async function SupportPage({ params }: { params: { lang: string }
         {/* 2. Audience cards */}
         <section className="mx-auto max-w-6xl px-5 py-10 md:px-8">
           <h1 className="text-3xl font-medium leading-tight">{t.cta2}</h1>
+          <nav aria-label={t.cta2} className="mt-4 hidden flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-brand-primary md:flex">
+            <a href="#urgent" className="hover:opacity-80">{t.navUrgent}</a>
+            <span aria-hidden="true" className="text-brand-border">·</span>
+            <a href="#talk" className="hover:opacity-80">{t.navTalk}</a>
+            <span aria-hidden="true" className="text-brand-border">·</span>
+            <a href="#before" className="hover:opacity-80">{t.sBeforeH}</a>
+            <span aria-hidden="true" className="text-brand-border">·</span>
+            <a href="#legal" className="hover:opacity-80">{t.navLegal}</a>
+          </nav>
           <p className="mt-2 text-lg text-brand-muted">{t.supSub}</p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {audiences.map((a) => (
@@ -91,7 +100,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
         </section>
 
         {/* 3. Urgent help band */}
-        <section className="bg-brand-emergency">
+        <section id="urgent" className="scroll-mt-24 bg-brand-emergency">
           <div className="mx-auto max-w-6xl px-5 py-10 text-white md:px-8">
             <h2 className="text-2xl font-medium">{t.sUrgentH}</h2>
             <p className="mt-2 max-w-2xl text-base leading-relaxed text-white/90">{t.sUrgentP}</p>
@@ -111,7 +120,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
         </section>
 
         {/* 4. Someone to talk to */}
-        <section className="mx-auto max-w-6xl px-5 py-14 md:px-8">
+        <section id="talk" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-14 md:px-8">
           <h2 className="text-2xl font-medium">{t.sTalkH}</h2>
           <p className="mt-2 max-w-2xl text-base text-brand-muted">{t.sInterp}</p>
           <div className="mt-6 grid gap-4">
@@ -153,7 +162,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
         </section>
 
         {/* 5. Before you decide */}
-        <section className="mx-auto max-w-6xl px-5 pb-14 md:px-8">
+        <section id="before" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 md:px-8">
           <h2 className="text-2xl font-medium">{t.sBeforeH}</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {questions.map((q, i) => (
@@ -175,7 +184,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
         </section>
 
         {/* 6. Legal and workplace */}
-        <section className="mx-auto max-w-6xl px-5 pb-14 md:px-8">
+        <section id="legal" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 md:px-8">
           <h2 className="text-2xl font-medium">{t.sLegalH}</h2>
           <div className="mt-6 grid gap-3">
             {legalRows.map((r) => (
@@ -191,7 +200,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
                   <span className="mt-0.5 block text-sm text-brand-muted">{t[r.desc as keyof Dict]}</span>
                 </span>
                 <span className="flex flex-none items-center gap-1 text-sm text-brand-muted">
-                  <span className="hidden sm:inline">{r.url.replace('https://www.', '')}</span>
+                  <span className="hidden sm:inline">{r.host}</span>
                   <span aria-hidden="true">↗</span>
                 </span>
               </a>
