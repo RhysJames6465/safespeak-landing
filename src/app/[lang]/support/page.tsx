@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { ArrowIcon } from '@/components/Icons';
 
 const audiences = [
-  { title: 'audW', desc: 'audWd', img: '/images/support-women.webp', alt: 'altSupportW' },
-  { title: 'audS', desc: 'audSd', img: '/images/support-seniors.webp', alt: 'altSupportS' },
-  { title: 'audF', desc: 'audFd', img: '/images/support-families.svg', alt: 'altSupportF' },
-  { title: 'audY', desc: 'audYd', img: '/images/support-youth.webp', alt: 'altSupportY' },
+  { title: 'audW', desc: 'audWd', img: '/images/support-women2.webp', alt: 'altSupportW' },
+  { title: 'audS', desc: 'audSd', img: '/images/support-seniors2.webp', alt: 'altSupportS' },
+  { title: 'audF', desc: 'audFd', img: '/images/support-famalies.webp', alt: 'altSupportF' },
+  { title: 'audY', desc: 'audYd', img: '/images/support-youth2.webp', alt: 'altSupportY' },
 ] as const;
 
 const helplines = [
