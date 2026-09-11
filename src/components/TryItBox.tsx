@@ -34,7 +34,7 @@ export default function TryItBox({ t, lang }: { t: Dict; lang: string }) {
     }
     const rec = new SR();
     recRef.current = rec;
-    rec.lang = lang === 'zh' ? 'zh-CN' : lang;
+    (rec as unknown as { lang: string }).lang = lang === 'zh' ? 'zh-CN' : lang;
     (rec as unknown as { onresult: (e: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void }).onresult = (e) => {
       setValue(e.results[0][0].transcript);
       setAnswered(true);
