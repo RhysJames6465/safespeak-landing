@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-brand-bg text-brand-ink antialiased;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Unify the five AI-generated card images with one warm tint.
+   Dial per-image by adjusting opacity or removing the class. */
+.img-tint { position: relative; }
+.img-tint img { filter: saturate(.96) sepia(.08) brightness(1.03); }
+
+/* Consistent warm grade on band + hero */
+.grade-warm img { filter: saturate(.98) sepia(.06); }
+
+/* Focus visibility — WCAG 2.2 AA */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--tw-ring-color, #0E6B5C);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* RTL: mirror the hero photo so text-side stays clear of the face */
+[dir="rtl"] .hero-photo { transform: scaleX(-1); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}

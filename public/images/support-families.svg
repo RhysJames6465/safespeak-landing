@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<rect width="800" height="600" fill="#E4F0EC"/>
+<g fill="#0E6B5C" opacity=".85">
+<circle cx="320" cy="240" r="52"/><path d="M240 600c0-90 36-130 80-130s80 40 80 130Z"/>
+<circle cx="470" cy="255" r="46"/><path d="M400 600c0-80 31-115 70-115s70 35 70 115Z"/>
+</g>
+<g fill="#565656" opacity=".8">
+<circle cx="220" cy="330" r="34"/><path d="M170 600c0-60 22-85 50-85s50 25 50 85Z"/>
+<circle cx="575" cy="335" r="30"/><path d="M530 600c0-55 20-78 45-78s45 23 45 78Z"/>
+</g>
+<text x="400" y="80" text-anchor="middle" font-family="sans-serif" font-size="26" fill="#565656">Family photo placeholder — generate with prompt in README</text>
+</svg>
