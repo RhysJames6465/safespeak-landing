@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import TryItBox from './TryItBox';
-import SupportButton from './SupportButton';
 import { ShieldIcon, ArrowIcon } from './Icons';
 import type { Dict } from '@/i18n';
 
@@ -21,7 +20,12 @@ export default function Hero({ t, locale }: { t: Dict; locale: string }) {
           >
             {t.cta1}
           </a>
-          <SupportButton variant="outline">{t.cta2}</SupportButton>
+          <a
+            href={`/${locale}/support`}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand-primary px-6 py-3.5 text-base font-medium text-brand-primary hover:bg-brand-soft"
+          >
+            {t.cta2}
+          </a>
         </div>
         {/* Desktop: hero photo beside text. Hidden on mobile (band image carries the warmth). */}
         <div className="grade-warm mt-8 hidden overflow-hidden rounded-2xl md:block">

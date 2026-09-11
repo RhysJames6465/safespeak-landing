@@ -9,7 +9,6 @@ import PhotoBand from '@/components/PhotoBand';
 import Reassurance from '@/components/Reassurance';
 import Bridge from '@/components/Bridge';
 import StickyBar from '@/components/StickyBar';
-import SupportOverlay from '@/components/SupportOverlay';
 import Footer from '@/components/Footer';
 
 export function generateStaticParams() {
@@ -31,11 +30,10 @@ export default async function Page({ params }: { params: { lang: string } }) {
         <HowItWorks t={t} />
         <PhotoBand t={t} />
         <Reassurance t={t} />
-        <Bridge t={t} />
+        <Bridge t={t} locale={locale} />
       </main>
       <Footer t={t} />
       <StickyBar t={t} />
-      <SupportOverlay t={t} />
     </>
   );
 }
