@@ -254,7 +254,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
           </div>
         </section>
       </main>
-      <Footer t={t} />
+      <Footer t={t} locale={locale} />
     </>
   );
 }

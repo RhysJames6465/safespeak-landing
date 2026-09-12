@@ -32,7 +32,9 @@ export default async function Page({ params }: { params: { lang: string } }) {
         <Reassurance t={t} />
         <Bridge t={t} locale={locale} />
       </main>
-      <Footer t={t} />
+      <Footer t={t} locale={locale} />
+      {/* Fallback spacing so the fixed StickyBar can never obscure footer content if JS fails */}
+      <div className="h-16" aria-hidden="true" />
       <StickyBar t={t} />
     </>
   );

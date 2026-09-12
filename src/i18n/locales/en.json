@@ -93,7 +93,6 @@
   "r2": "Your words stay on your phone until you choose to send them.",
   "ai": "We use AI to organise information. It can make mistakes — check important details.",
   "ack": "We acknowledge the Traditional Owners of Country throughout Australia and their continuing connection to land, waters and community.",
-  "op": "Operated by SafeSpeak Australia Ltd · ABN 00 000 000 000",
   "f1": "About",
   "f2": "Privacy",
   "f3": "Terms",
@@ -128,5 +127,16 @@
   "altSupportY": "A young man looking at his phone in bed at night.",
   "navUrgent": "Urgent help",
   "navTalk": "Talk to someone",
-  "navLegal": "Legal & privacy"
+  "navLegal": "Legal & privacy",
+  "fBrandP": "Free and independent — not the police or government. You decide what happens next.",
+  "fHelpH": "Help",
+  "fHelpSafety": "Help & Safety",
+  "fAboutH": "About",
+  "fAboutSafe": "About SafeSpeak",
+  "fUrgentH": "Need urgent help?",
+  "fUrgentP": "If you’re in immediate danger, call 000.",
+  "fCall000": "Call 000",
+  "fExit": "Quick exit",
+  "fExitP": "Leave SafeSpeak quickly.",
+  "fLang": "Languages"
 }

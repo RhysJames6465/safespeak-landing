@@ -59,7 +59,7 @@ export const LangSwitcher = ({ locale }: { locale: string }) => {
   const order = ['en', 'ar', 'zh', 'vi'];
   const names: Record<string, string> = { en: 'English', ar: 'العربية', zh: '中文', vi: 'Tiếng Việt' };
   return (
-    <div className="flex gap-1" role="group" aria-label="Language / اللغة / 语言 / Ngôn ngữ">
+    <div className="flex flex-wrap gap-1" role="group" aria-label="Language / اللغة / 语言 / Ngôn ngữ">
       {order.map((l) => (
         <a
           key={l}
