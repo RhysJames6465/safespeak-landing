@@ -15,11 +15,13 @@ export type StoryCard = {
 export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
   const gridRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
-  const timersRef = useRef<number[]>([]);
   const eligibleRef = useRef<Set<number>>(new Set());
   const playedOnceRef = useRef<Set<number>>(new Set());
-  const entranceDoneRef = useRef(false);
+  const selectedRef = useRef<number | null>(null);
+  const playRequestRef = useRef<number | null>(null);
+  const startingRef = useRef<number | null>(null);
   const touchRef = useRef(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Static during SSR/hydration; upgraded after client-side capability checks.
   const [staticMode, setStaticMode] = useState(true);
   const [attachSources, setAttachSources] = useState(false);
@@ -41,7 +43,22 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
 
     const cleanups: Array<() => void> = [];
     const videos = () => videoRefs.current;
-    const pauseAll = () => videos().forEach((v) => v && !v.paused && v.pause());
+    const pauseAndReset = (video: HTMLVideoElement | null) => {
+      if (!video) return;
+      video.pause();
+      try {
+        video.currentTime = 0;
+      } catch {
+        /* not seekable yet */
+      }
+    };
+    const pauseAll = () => {
+      playRequestRef.current = null;
+      startingRef.current = null;
+      selectedRef.current = null;
+      videos().forEach(pauseAndReset);
+      setActiveIndex(null);
+    };
 
     // Attach sources only when the section approaches the viewport.
     const attachIO = new IntersectionObserver(
@@ -56,31 +73,7 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
     attachIO.observe(section);
     cleanups.push(() => attachIO.disconnect());
 
-    if (!isTouch) {
-      // Entrance: when the section is ~40% visible, play each video once,
-      // staggered ~500ms in card order. Pause all if it leaves the viewport.
-      const entranceIO = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          if (entry.isIntersecting && !entranceDoneRef.current) {
-            entranceDoneRef.current = true;
-            videos().forEach((v, i) => {
-              if (!v) return;
-              const id = window.setTimeout(() => {
-                v.play().catch(() => {});
-              }, i * 500);
-              timersRef.current.push(id);
-            });
-            entranceIO.disconnect();
-          } else if (!entry.isIntersecting) {
-            pauseAll();
-          }
-        },
-        { threshold: 0.4 }
-      );
-      entranceIO.observe(section);
-      cleanups.push(() => entranceIO.disconnect());
-    } else {
+    if (isTouch) {
       // Touch: play only the eligible card closest to the viewport centre.
       const pickCentre = () => {
         const mid = window.innerHeight / 2;
@@ -96,13 +89,29 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
             best = i;
           }
         });
-        videos().forEach((v, i) => {
-          if (!v) return;
-          if (i === best && !playedOnceRef.current.has(i)) {
-            playedOnceRef.current.add(i);
-            v.play().catch(() => {});
-          } else if (!v.paused) {
-            v.pause();
+
+        if (selectedRef.current !== best) {
+          selectedRef.current = best;
+          playRequestRef.current = null;
+          startingRef.current = null;
+          videos().forEach((video, i) => {
+            if (i !== best) pauseAndReset(video);
+          });
+          setActiveIndex(null);
+        }
+
+        if (best < 0 || playedOnceRef.current.has(best) || startingRef.current === best) return;
+        const video = videoRefs.current[best];
+        if (!video) return;
+
+        playRequestRef.current = best;
+        startingRef.current = best;
+        if (video.readyState === HTMLMediaElement.HAVE_NOTHING) video.load();
+        video.play().catch(() => {
+          if (playRequestRef.current === best) {
+            playRequestRef.current = null;
+            startingRef.current = null;
+            setActiveIndex(null);
           }
         });
       };
@@ -120,6 +129,13 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
         io.observe(child);
         cleanups.push(() => io.disconnect());
       });
+
+      window.addEventListener('scroll', pickCentre, { passive: true });
+      window.addEventListener('resize', pickCentre);
+      cleanups.push(() => {
+        window.removeEventListener('scroll', pickCentre);
+        window.removeEventListener('resize', pickCentre);
+      });
     }
 
     const onVisibility = () => {
@@ -129,8 +145,10 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
     cleanups.push(() => document.removeEventListener('visibilitychange', onVisibility));
 
     return () => {
-      timersRef.current.forEach((id) => window.clearTimeout(id));
-      timersRef.current = [];
+      playRequestRef.current = null;
+      startingRef.current = null;
+      selectedRef.current = null;
+      videos().forEach(pauseAndReset);
       cleanups.forEach((fn) => fn());
     };
   }, []);
@@ -139,27 +157,43 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
     if (staticMode || touchRef.current) return;
     const v = videoRefs.current[i];
     if (!v) return;
-    videoRefs.current.forEach((o, j) => {
-      if (j !== i && o && !o.paused) o.pause();
+    playRequestRef.current = i;
+    setActiveIndex(null);
+    videoRefs.current.forEach((other, j) => {
+      if (j === i || !other) return;
+      other.pause();
+      try {
+        other.currentTime = 0;
+      } catch {
+        /* not seekable yet */
+      }
     });
     try {
       v.currentTime = 0;
     } catch {
       /* not seekable yet */
     }
-    v.play().catch(() => {});
+    if (v.readyState === HTMLMediaElement.HAVE_NOTHING) v.load();
+    v.play().catch(() => {
+      if (playRequestRef.current === i) {
+        playRequestRef.current = null;
+        setActiveIndex(null);
+      }
+    });
   };
 
   const stopReplay = (i: number) => {
     if (staticMode || touchRef.current) return;
     const v = videoRefs.current[i];
     if (!v) return;
+    if (playRequestRef.current === i) playRequestRef.current = null;
     v.pause();
     try {
       v.currentTime = 0;
     } catch {
       /* not seekable yet */
     }
+    setActiveIndex((active) => (active === i ? null : active));
   };
 
   return (
@@ -201,8 +235,54 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
                   preload="none"
                   aria-hidden="true"
                   tabIndex={-1}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-none ${
+                    activeIndex === i ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onPlaying={() => {
+                    if (playRequestRef.current === i) {
+                      startingRef.current = null;
+                      if (touchRef.current) playedOnceRef.current.add(i);
+                      setActiveIndex(i);
+                    }
+                  }}
+                  onPause={() => {
+                    setActiveIndex((active) => (active === i ? null : active));
+                  }}
+                  onCanPlay={(e) => {
+                    if (
+                      !touchRef.current ||
+                      selectedRef.current !== i ||
+                      playedOnceRef.current.has(i) ||
+                      startingRef.current === i
+                    ) {
+                      return;
+                    }
+                    playRequestRef.current = i;
+                    startingRef.current = i;
+                    e.currentTarget.play().catch(() => {
+                      if (playRequestRef.current === i) {
+                        playRequestRef.current = null;
+                        startingRef.current = null;
+                        setActiveIndex(null);
+                      }
+                    });
+                  }}
+                  onEnded={(e) => {
+                    if (playRequestRef.current === i) playRequestRef.current = null;
+                    startingRef.current = null;
+                    e.currentTarget.pause();
+                    try {
+                      e.currentTarget.currentTime = 0;
+                    } catch {
+                      /* not seekable yet */
+                    }
+                    setActiveIndex((active) => (active === i ? null : active));
+                  }}
                   onError={(e) => {
+                    if (playRequestRef.current === i) playRequestRef.current = null;
+                    if (startingRef.current === i) startingRef.current = null;
+                    setActiveIndex((active) => (active === i ? null : active));
+                    e.currentTarget.pause();
                     e.currentTarget.style.display = 'none';
                   }}
                 />
