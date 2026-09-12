@@ -31,6 +31,42 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* RTL: mirror the hero photo so text-side stays clear of the face */
 [dir="rtl"] .hero-photo { transform: scaleX(-1); }
 
+/* ---- How it works: connected pathway ----
+   Base styles are the completed state so the visuals are fully visible
+   without JavaScript and under prefers-reduced-motion (the global reduce
+   rule above neutralises the entrance animations). */
+.pw-card { transition: background-color .3s cubic-bezier(.16,1,.3,1), border-color .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1); }
+.pw-card[data-state='active'] { background-color: #E4F0EC; border-color: #0E6B5C; box-shadow: 0 1px 4px rgba(14,107,92,.14); }
+.pw-card[data-state='complete'] { background-color: #fff; border-color: #E6E3DD; }
+.pw-circle { transition: background-color .3s cubic-bezier(.16,1,.3,1), color .3s cubic-bezier(.16,1,.3,1); }
+.pw-card[data-state='active'] .pw-circle { background-color: #0E6B5C; color: #fff; }
+
+.pw-pulse { animation: pw-pulse .7s cubic-bezier(.16,1,.3,1) .1s backwards; }
+@keyframes pw-pulse { from { transform: scale(.55); opacity: .7; } to { transform: scale(1.5); opacity: 0; } }
+
+.pw-bar { animation: pw-wave .7s cubic-bezier(.16,1,.3,1) backwards; }
+@keyframes pw-wave { from { transform: scaleY(.2); } 55% { transform: scaleY(1.18); } to { transform: scaleY(1); } }
+
+.pw-line, .pw-row, .pw-consent { animation: pw-rise .5s cubic-bezier(.16,1,.3,1) backwards; }
+@keyframes pw-rise { from { opacity: 0; transform: translateY(6px); } }
+
+.pw-draw { stroke-dasharray: 12; stroke-dashoffset: 0; animation: pw-draw .3s ease backwards; }
+.pw-tick { stroke-dasharray: 17; stroke-dashoffset: 0; animation: pw-drawbig .3s ease 1.45s backwards; }
+@keyframes pw-draw { from { stroke-dashoffset: 16; } }
+@keyframes pw-drawbig { from { stroke-dashoffset: 17; } }
+
+.pw-pill { border-color: #0E6B5C; background-color: #E4F0EC; animation: pw-pill .4s cubic-bezier(.16,1,.3,1) .5s backwards; }
+@keyframes pw-pill { from { border-color: #E6E3DD; background-color: #fff; } }
+
+.pw-ring { stroke-dasharray: 82; stroke-dashoffset: 0; animation: pw-ringdraw .5s cubic-bezier(.16,1,.3,1) 1.1s backwards; }
+@keyframes pw-ringdraw { from { stroke-dashoffset: 82; } }
+
+.pw-dot { offset-distance: 0%; animation: pw-travel .42s cubic-bezier(.4,0,.2,1) forwards; }
+@keyframes pw-travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+
+details.pw-details { transition: border-color .35s cubic-bezier(.16,1,.3,1), background-color .35s cubic-bezier(.16,1,.3,1); }
+details.pw-payoff { border-color: #0E6B5C; background-color: #E4F0EC; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }
