@@ -4,7 +4,7 @@ import type { Dict } from '@/i18n';
 
 export default function Header({ t, locale }: { t: Dict; locale: string }) {
   return (
-    <header className="border-b border-brand-border bg-white">
+    <header className="sticky top-0 z-40 border-b border-brand-border bg-white">
       <div className="mx-auto flex min-h-[4.5rem] max-w-6xl flex-wrap items-center gap-3 gap-y-1 px-5 py-3 md:min-h-[6.25rem] md:gap-6 md:px-8 md:py-4">
         <a
           href={`/${locale}`}

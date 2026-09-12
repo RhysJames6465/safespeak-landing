@@ -118,7 +118,17 @@ export default function Footer({ t, locale }: { t: Dict; locale: string }) {
           </div>
         </div>
       </div>
-
+      <div className="border-t border-brand-border">
+        <p className="mx-auto max-w-7xl px-6 py-4 text-xs leading-5 text-brand-muted md:px-8">
+          {t.siteBy}{' '}
+          <a
+            href="https://aigenticcampaign.com"
+            className="text-brand-primary underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:decoration-current focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none"
+          >
+            Aigentic Campaign
+          </a>
+        </p>
+      </div>
     </footer>
   );
 }
