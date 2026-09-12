@@ -131,12 +131,21 @@
   "fBrandP": "Miễn phí và độc lập — không phải cảnh sát hay chính phủ. Bạn quyết định điều tiếp theo.",
   "fHelpH": "Trợ giúp",
   "fHelpSafety": "Trợ giúp & An toàn",
+  "fResources": "Tài nguyên",
+  "fTrustH": "Tin cậy",
+  "fAiTransparency": "Minh bạch về AI",
+  "fSources": "Nguồn",
+  "fAccessibility": "Khả năng tiếp cận",
   "fAboutH": "Về",
   "fAboutSafe": "Về SafeSpeak",
+  "fOurApproach": "Cách tiếp cận của chúng tôi",
+  "fContact": "Liên hệ",
   "fUrgentH": "Cần hỗ trợ khẩn cấp?",
   "fUrgentP": "Nếu bạn đang gặp nguy hiểm, hãy gọi 000.",
   "fCall000": "Gọi 000",
   "fExit": "Thoát nhanh",
   "fExitP": "Rời SafeSpeak nhanh chóng.",
-  "fLang": "Ngôn ngữ"
+  "fLang": "Ngôn ngữ",
+  "sAccessibilityH": "Khả năng tiếp cận",
+  "sAccessibilityP": "Sử dụng SafeSpeak bằng điều hướng bàn phím, tính năng thu phóng của trình duyệt, điều khiển cỡ chữ và cài đặt giảm chuyển động. Bạn có thể chọn tiếng Anh, tiếng Ả Rập, tiếng Trung hoặc tiếng Việt bất cứ lúc nào."
 }

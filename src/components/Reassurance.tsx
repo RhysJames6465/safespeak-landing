@@ -11,7 +11,11 @@ export default function Reassurance({ t }: { t: Dict }) {
     <section className="mx-auto max-w-6xl px-5 py-14 md:px-8">
       <div className="grid gap-4 md:grid-cols-3">
         {items.map((it) => (
-          <div key={it.title} className="rounded-2xl bg-brand-soft p-6">
+          <div
+            key={it.title}
+            id={it.title === 'r3t' ? 'ai-transparency' : undefined}
+            className="scroll-mt-24 rounded-2xl bg-brand-soft p-6"
+          >
             <p className="mb-2 text-xs font-medium uppercase tracking-wide text-brand-muted">
               {t[it.title]}
             </p>

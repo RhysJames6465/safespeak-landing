@@ -210,7 +210,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
         </section>
 
         {/* 7. Protect your privacy */}
-        <section className="mx-auto max-w-6xl px-5 pb-14 md:px-8">
+        <section id="privacy" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 md:px-8">
           <h2 className="text-2xl font-medium">{t.sPrivH}</h2>
           <p className="mt-2 max-w-2xl text-base text-brand-muted">{t.sPrivP}</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -223,7 +223,17 @@ export default async function SupportPage({ params }: { params: { lang: string }
           </div>
         </section>
 
-        {/* 8. Help me choose (stub) */}
+        {/* 8. Accessibility */}
+        <section id="accessibility" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 md:px-8">
+          <div className="border-t border-brand-border pt-8">
+            <h2 className="text-2xl font-medium">{t.sAccessibilityH}</h2>
+            <p className="mt-2 max-w-3xl text-base leading-relaxed text-brand-muted">
+              {t.sAccessibilityP}
+            </p>
+          </div>
+        </section>
+
+        {/* 9. Help me choose (stub) */}
         <section className="mx-auto max-w-6xl px-5 pb-14 md:px-8">
           <div className="rounded-2xl border border-dashed border-brand-border bg-white p-6">
             <h2 className="text-2xl font-medium">{t.sQuizH}</h2>
@@ -239,7 +249,7 @@ export default async function SupportPage({ params }: { params: { lang: string }
           </div>
         </section>
 
-        {/* 9. Closing card */}
+        {/* 10. Closing card */}
         <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8">
           <div className="rounded-2xl bg-brand-soft p-8 md:p-10">
             <h2 className="text-2xl font-medium md:text-3xl">{t.bridgeH}</h2>

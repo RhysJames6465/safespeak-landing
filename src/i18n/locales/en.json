@@ -131,12 +131,21 @@
   "fBrandP": "Free and independent — not the police or government. You decide what happens next.",
   "fHelpH": "Help",
   "fHelpSafety": "Help & Safety",
+  "fResources": "Resources",
+  "fTrustH": "Trust",
+  "fAiTransparency": "AI transparency",
+  "fSources": "Sources",
+  "fAccessibility": "Accessibility",
   "fAboutH": "About",
   "fAboutSafe": "About SafeSpeak",
+  "fOurApproach": "Our approach",
+  "fContact": "Contact",
   "fUrgentH": "Need urgent help?",
   "fUrgentP": "If you’re in immediate danger, call 000.",
   "fCall000": "Call 000",
   "fExit": "Quick exit",
   "fExitP": "Leave SafeSpeak quickly.",
-  "fLang": "Languages"
+  "fLang": "Languages",
+  "sAccessibilityH": "Accessibility",
+  "sAccessibilityP": "Use SafeSpeak with keyboard navigation, browser zoom, text-size controls and reduced-motion settings. Choose English, Arabic, Chinese or Vietnamese at any time."
 }

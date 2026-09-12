@@ -131,12 +131,21 @@
   "fBrandP": "免费且独立——我们不是警察或政府机构。接下来怎么做，由你决定。",
   "fHelpH": "帮助",
   "fHelpSafety": "帮助与安全",
+  "fResources": "资源",
+  "fTrustH": "信任",
+  "fAiTransparency": "AI 透明度",
+  "fSources": "来源",
+  "fAccessibility": "无障碍功能",
   "fAboutH": "关于",
   "fAboutSafe": "关于 SafeSpeak",
+  "fOurApproach": "我们的方法",
+  "fContact": "联系我们",
   "fUrgentH": "需要紧急帮助吗？",
   "fUrgentP": "如果你面临紧急危险，请拨打 000。",
   "fCall000": "拨打 000",
   "fExit": "快速离开",
   "fExitP": "快速离开 SafeSpeak。",
-  "fLang": "语言"
+  "fLang": "语言",
+  "sAccessibilityH": "无障碍功能",
+  "sAccessibilityP": "你可以通过键盘导航、浏览器缩放、文字大小控制和减少动态效果设置使用 SafeSpeak。你可以随时选择英语、阿拉伯语、中文或越南语。"
 }
