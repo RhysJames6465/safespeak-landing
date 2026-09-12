@@ -2,14 +2,16 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { ArrowIcon } from './Icons';
 
 export type StoryCard = {
   key: string;
+  category: string;
   text: string;
   alt: string;
   img: string;
   video: string;
-  primary: boolean;
+  scamShield: boolean;
 };
 
 export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
@@ -197,17 +199,14 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
   };
 
   return (
-    <div ref={gridRef} className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+    <div ref={gridRef} className="mt-7 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
       {cards.map((c, i) => {
-        const cls = c.primary
-          ? 'bg-brand-soft font-medium'
-          : 'border border-brand-border bg-white font-normal';
         return (
           <a
             key={c.key}
             href="#tell"
-            className={`group overflow-hidden rounded-xl transition-shadow hover:shadow-md focus-visible:shadow-md ${
-              c.primary ? 'sm:col-span-1 lg:col-span-2' : 'sm:col-span-1 lg:col-span-2'
+            className={`group flex min-h-[44px] flex-col overflow-hidden rounded-xl border bg-white transition-[border-color,box-shadow] duration-150 ease-out hover:border-brand-primary hover:shadow-sm focus-visible:border-brand-primary focus-visible:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none ${
+              c.scamShield ? 'border-brand-primary/50' : 'border-brand-border'
             }`}
             onMouseEnter={() => replay(i)}
             onMouseLeave={() => stopReplay(i)}
@@ -219,7 +218,7 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
                 src={c.img}
                 alt={c.alt}
                 fill
-                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                sizes="(min-width:1280px) 33vw, (min-width:640px) 50vw, 100vw"
                 className="object-cover"
                 loading="lazy"
               />
@@ -235,7 +234,7 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
                   preload="none"
                   aria-hidden="true"
                   tabIndex={-1}
-                  className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-none ${
+                  className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-150 ease-out motion-reduce:transition-none ${
                     activeIndex === i ? 'opacity-100' : 'opacity-0'
                   }`}
                   onPlaying={() => {
@@ -288,8 +287,18 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
                 />
               )}
             </div>
-            <div className={`min-h-[5.5rem] p-5 ${cls}`}>
-              <p className="text-base leading-snug">{c.text}</p>
+            <div
+              className={`flex min-h-[9.5rem] flex-1 flex-col p-6 md:p-7 ${
+                c.scamShield ? 'bg-brand-soft' : 'bg-white'
+              }`}
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-primary">
+                {c.category}
+              </p>
+              <p className="mt-2.5 text-base leading-snug">{c.text}</p>
+              <span className="mt-auto self-end pt-4">
+                <ArrowIcon className="h-5 w-5 text-brand-primary transition-transform duration-150 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transition-none rtl:rotate-180 rtl:group-hover:-translate-x-1 rtl:group-focus-visible:-translate-x-1" />
+              </span>
             </div>
           </a>
         );
