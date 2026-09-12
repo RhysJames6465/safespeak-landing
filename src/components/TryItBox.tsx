@@ -46,7 +46,15 @@ export default function TryItBox({ t, lang }: { t: Dict; lang: string }) {
 
   return (
     <div className="rounded-2xl border border-brand-border bg-white p-5 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
-      <p className="mb-3 text-sm text-brand-muted">{t.try}</p>
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div>
+          <h2 className="text-lg font-medium leading-tight">{t.heroTryHeading}</h2>
+          <p className="mt-1 text-sm text-brand-muted">{t.try}</p>
+        </div>
+        <span className="flex-none rounded-md border border-brand-border px-2 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-brand-muted">
+          {t.heroTryPreview}
+        </span>
+      </div>
       <div className="flex min-h-[3.5rem] items-center gap-2 rounded-xl border border-brand-border bg-brand-bg py-1 pe-1 ps-4">
         <input
           value={value}

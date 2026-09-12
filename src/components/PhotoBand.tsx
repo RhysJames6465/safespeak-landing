@@ -24,7 +24,6 @@ export default function PhotoBand({ t }: { t: Dict }) {
           loading="lazy"
         />
       </div>
-      <p className="mx-auto max-w-6xl px-5 pt-4 text-xs text-brand-muted md:px-8">{t.cap}</p>
     </section>
   );
 }

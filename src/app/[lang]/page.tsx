@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import { getDict, locales, type Locale } from '@/i18n';
-import EmergencyBar from '@/components/EmergencyBar';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Stories from '@/components/Stories';
@@ -22,9 +21,8 @@ export default async function Page({ params }: { params: { lang: string } }) {
 
   return (
     <>
-      <EmergencyBar t={t} />
       <Header t={t} locale={locale} />
-      <main>
+      <main className="landing-main bg-page">
         <Hero t={t} locale={locale} />
         <Stories t={t} />
         <HowItWorks t={t} />

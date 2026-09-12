@@ -1,46 +1,51 @@
 import Image from 'next/image';
-import TryItBox from './TryItBox';
-import { ShieldIcon, ArrowIcon } from './Icons';
+import { ShieldIcon } from './Icons';
 import type { Dict } from '@/i18n';
 
 export default function Hero({ t, locale }: { t: Dict; locale: string }) {
   return (
-    <section className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-10 pt-6 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:pt-10 lg:gap-14">
-      <div>
-        <h1 className="text-3xl font-medium leading-tight md:text-[2.4rem]">{t.h1}</h1>
-        <p className="mt-4 text-lg leading-relaxed text-brand-muted">{t.sub}</p>
-        <p className="mt-3 flex items-center gap-2 text-sm font-medium">
-          <ShieldIcon className="h-4 w-4 flex-none text-brand-primary" />
-          {t.tr}
-        </p>
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#tell"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-base font-medium text-white hover:opacity-90"
-          >
-            {t.cta1}
-          </a>
-          <a
-            href={`/${locale}/support`}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand-primary px-6 py-3.5 text-base font-medium text-brand-primary hover:bg-brand-soft"
-          >
-            {t.cta2}
-          </a>
+    <section id="tell" className="mx-auto max-w-6xl px-5 pb-8 pt-8 md:px-8 md:pb-10 md:pt-14">
+      <div className="grid gap-12 md:grid-cols-[48fr_52fr] md:items-start md:gap-10 lg:gap-14">
+        <div className="hero-copy md:pt-3">
+          <p className="mb-5 max-w-[42ch] text-sm font-medium leading-relaxed text-brand-primary">
+            {t.heroIntro}
+          </p>
+          <h1 className="max-w-[16ch] text-3xl font-medium leading-[1.12] md:text-[2.75rem] lg:text-[3.15rem]">
+            {t.h1}
+          </h1>
+          <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-brand-muted">{t.sub}</p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#tell"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3 text-base font-medium text-white transition-opacity duration-150 hover:opacity-90"
+            >
+              {t.cta1}
+            </a>
+            <a
+              href={`/${locale}/support`}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand-primary px-6 py-3 text-base font-medium text-brand-primary transition-colors duration-150 hover:bg-brand-soft"
+            >
+              {t.cta2}
+            </a>
+          </div>
+          <p className="mt-5 flex items-center gap-2 text-sm font-medium">
+            <ShieldIcon className="h-4 w-4 flex-none text-brand-primary" />
+            {t.tr}
+          </p>
         </div>
-        {/* Desktop: hero photo beside text. Hidden on mobile (band image carries the warmth). */}
-        <div className="grade-warm mt-8 hidden overflow-hidden rounded-2xl md:block">
-          <Image
-            src="/images/hero.webp"
-            alt={t.altHero}
-            width={1200}
-            height={900}
-            className="hero-photo h-64 w-full object-cover object-[75%_center] lg:h-72"
-            priority
-          />
+
+        <div className="hero-visual relative self-start overflow-hidden md:pt-0">
+          <div className="hero-artwork relative aspect-[1052/778] w-full">
+            <Image
+              src="/images/hero1.webp"
+              alt={t.altHeroCommunity}
+              width={1052}
+              height={778}
+              className="h-full w-full object-contain"
+              priority
+            />
+          </div>
         </div>
-      </div>
-      <div id="tell">
-        <TryItBox t={t} lang={locale} />
       </div>
     </section>
   );

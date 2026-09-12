@@ -54,27 +54,3 @@ export const ArrowIcon = (p: { className?: string }) => (
     <path fillRule="evenodd" clipRule="evenodd" d="M21.44 12.81a.9.9 0 0 0 0-1.27l-5.54-5.54a.9.9 0 0 0-1.27 1.27l4 4H2.8a.9.9 0 1 0 0 1.8h15.84l-4.01 4.05a.9.9 0 1 0 1.28 1.26l5.53-5.57Z" fill="currentColor" />
   </svg>
 );
-
-export const LangSwitcher = ({ locale }: { locale: string }) => {
-  const order = ['en', 'ar', 'zh', 'vi'];
-  const names: Record<string, string> = { en: 'English', ar: 'العربية', zh: '中文', vi: 'Tiếng Việt' };
-  return (
-    <div className="flex flex-wrap gap-1" role="group" aria-label="Language / اللغة / 语言 / Ngôn ngữ">
-      {order.map((l) => (
-        <a
-          key={l}
-          href={`/${l}`}
-          lang={l}
-          aria-current={l === locale ? 'true' : undefined}
-          className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
-            l === locale
-              ? 'bg-brand-primary text-white font-medium'
-              : 'text-brand-muted hover:text-brand-primary'
-          }`}
-        >
-          {names[l]}
-        </a>
-      ))}
-    </div>
-  );
-};

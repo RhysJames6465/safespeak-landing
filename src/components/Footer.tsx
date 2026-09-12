@@ -1,4 +1,4 @@
-import { ShieldIcon, PhoneIcon, ExitIcon, LangSwitcher } from './Icons';
+import { ShieldIcon, PhoneIcon, ExitIcon } from './Icons';
 import type { Dict } from '@/i18n';
 
 const linkCls =
@@ -119,33 +119,6 @@ export default function Footer({ t, locale }: { t: Dict; locale: string }) {
         </div>
       </div>
 
-      {/* Band 2 — Acknowledgement of Country */}
-      <div className="border-t border-brand-border">
-        <div className="mx-auto max-w-7xl px-6 py-7 md:px-8">
-          <p className="max-w-[80ch] text-sm leading-6 text-brand-muted">{t.ack}</p>
-        </div>
-      </div>
-
-      {/* Band 3 — legal and accessibility */}
-      <div className="border-t border-brand-border">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-3 px-6 py-5 md:px-8">
-          <nav className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Legal">
-            <a href="#privacy" className={linkCls}>
-              {t.f2}
-            </a>
-            <a href="#terms" className={linkCls}>
-              {t.f3}
-            </a>
-          </nav>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-brand-muted">{t.fLang}</span>
-            <LangSwitcher locale={locale} />
-          </div>
-          <small className="text-xs leading-relaxed text-brand-muted md:ml-auto md:max-w-md">
-            {t.disc}
-          </small>
-        </div>
-      </div>
     </footer>
   );
 }

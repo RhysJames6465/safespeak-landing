@@ -3,7 +3,7 @@ import type { Dict } from '@/i18n';
 
 export default function Bridge({ t, locale }: { t: Dict; locale: string }) {
   return (
-    <section className="bg-brand-soft py-16">
+    <section className="bg-page py-16">
       <div className="mx-auto max-w-3xl px-5 md:px-8">
         <h2 className="text-2xl font-medium md:text-3xl">{t.bridgeH}</h2>
         <p className="mt-3 text-lg leading-relaxed text-brand-muted">{t.bridgeP}</p>

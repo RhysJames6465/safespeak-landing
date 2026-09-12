@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss';
 // Brand directions: swap `active` to 'sand' or 'slate' to re-theme the whole site
 // from one place. Palettes approved in design review.
 const themes = {
-  harbour: { bg: '#FAF9F6', surface: '#FFFFFF', primary: '#0E6B5C', soft: '#E4F0EC',
+  harbour: { bg: '#FAF9F6', surface: '#FFFFFF', primary: '#0E6B5C', soft: '#E4F0EC', story: '#FFF8F1',
              ink: '#1A1A1A', muted: '#565656', border: '#E6E3DD', emergency: '#B42318' },
   sand:    { bg: '#FBF7EF', surface: '#FFFFFF', primary: '#9A5B2E', soft: '#F3E8D9',
              ink: '#26221D', muted: '#5C554C', border: '#EAE1D2', emergency: '#A8381F' },
@@ -18,6 +18,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: active,
+        page: '#FAEDE0',
       },
       fontFamily: {
         // Atkinson Hyperlegible: high legibility for low-vision + older users.

@@ -206,7 +206,7 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
             key={c.key}
             href="#tell"
             className={`group flex min-h-[44px] flex-col overflow-hidden rounded-xl border bg-white transition-[border-color,box-shadow] duration-150 ease-out hover:border-brand-primary hover:shadow-sm focus-visible:border-brand-primary focus-visible:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none ${
-              c.scamShield ? 'border-brand-primary/50' : 'border-brand-border'
+              c.scamShield ? 'border-brand-primary/50' : 'border-brand-primary/25'
             }`}
             onMouseEnter={() => replay(i)}
             onMouseLeave={() => stopReplay(i)}
@@ -288,8 +288,8 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
               )}
             </div>
             <div
-              className={`flex min-h-[9.5rem] flex-1 flex-col p-6 md:p-7 ${
-                c.scamShield ? 'bg-brand-soft' : 'bg-white'
+              className={`flex min-h-[8.5rem] flex-1 flex-col p-6 md:p-7 ${
+                c.scamShield ? 'bg-brand-soft' : 'bg-brand-story'
               }`}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-primary">
