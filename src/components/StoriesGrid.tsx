@@ -205,7 +205,7 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
           <a
             key={c.key}
             href="#tell"
-            className={`group flex min-h-[44px] flex-col overflow-hidden rounded-xl border bg-white transition-[border-color,box-shadow] duration-150 ease-out hover:border-brand-primary hover:shadow-sm focus-visible:border-brand-primary focus-visible:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none ${
+            className={`story-card group flex min-h-[44px] flex-col overflow-hidden rounded-xl border bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary ${
               c.scamShield ? 'border-brand-primary/50' : 'border-brand-primary/25'
             }`}
             onMouseEnter={() => replay(i)}
@@ -288,8 +288,8 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
               )}
             </div>
             <div
-              className={`flex min-h-[8.5rem] flex-1 flex-col p-6 md:p-7 ${
-                c.scamShield ? 'bg-brand-soft' : 'bg-brand-story'
+              className={`story-card__panel flex min-h-[8.5rem] flex-1 flex-col p-6 md:p-7 ${
+                c.scamShield ? 'story-card__panel--scam bg-brand-soft' : 'bg-brand-story'
               }`}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-primary">
@@ -297,7 +297,7 @@ export default function StoriesGrid({ cards }: { cards: StoryCard[] }) {
               </p>
               <p className="mt-2.5 text-base leading-snug">{c.text}</p>
               <span className="mt-auto self-end pt-4">
-                <ArrowIcon className="h-5 w-5 text-brand-primary transition-transform duration-150 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transition-none rtl:rotate-180 rtl:group-hover:-translate-x-1 rtl:group-focus-visible:-translate-x-1" />
+                <ArrowIcon className="story-card__arrow h-5 w-5 text-brand-primary" />
               </span>
             </div>
           </a>

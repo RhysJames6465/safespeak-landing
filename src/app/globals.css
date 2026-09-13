@@ -22,6 +22,38 @@ body {
 .img-tint img { filter: saturate(.96) sepia(.08) brightness(1.03); }
 .img-tint video { filter: saturate(.96) sepia(.08) brightness(1.03); }
 
+/* Story-card feedback: calm colour shift without changing the card geometry. */
+.story-card {
+  transition: border-color 180ms ease-out, box-shadow 180ms ease-out;
+}
+.story-card__panel { transition: background-color 180ms ease-out; }
+.story-card__arrow { transition: transform 180ms ease-out; }
+[dir='rtl'] .story-card__arrow { transform: rotate(180deg); }
+
+.story-card:focus-visible {
+  border-color: #0E6B5C;
+  box-shadow: 0 1px 2px rgb(14 107 92 / 0.08);
+}
+.story-card:focus-visible .story-card__panel { background-color: #DCEFE8; }
+.story-card:focus-visible .story-card__panel--scam { background-color: #CFE6DC; }
+.story-card:focus-visible .story-card__arrow { transform: translateX(3px); }
+[dir='rtl'] .story-card:focus-visible .story-card__arrow {
+  transform: translateX(-3px) rotate(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .story-card:hover {
+    border-color: #0E6B5C;
+    box-shadow: 0 1px 2px rgb(14 107 92 / 0.08);
+  }
+  .story-card:hover .story-card__panel { background-color: #DCEFE8; }
+  .story-card:hover .story-card__panel--scam { background-color: #CFE6DC; }
+  .story-card:hover .story-card__arrow { transform: translateX(3px); }
+  [dir='rtl'] .story-card:hover .story-card__arrow {
+    transform: translateX(-3px) rotate(180deg);
+  }
+}
+
 /* Consistent warm grade on band + hero */
 .grade-warm img { filter: saturate(.98) sepia(.06); }
 
@@ -87,4 +119,13 @@ details.pw-payoff { border-color: #0E6B5C; background-color: #E4F0EC; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }
+  .story-card:hover .story-card__arrow,
+  .story-card:focus-visible .story-card__arrow {
+    transform: none;
+  }
+
+  [dir='rtl'] .story-card:hover .story-card__arrow,
+  [dir='rtl'] .story-card:focus-visible .story-card__arrow {
+    transform: rotate(180deg);
+  }
 }
