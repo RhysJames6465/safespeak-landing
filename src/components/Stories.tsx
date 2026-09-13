@@ -12,7 +12,7 @@ const cards = [
 
 export default function Stories({ t }: { t: Dict }) {
   return (
-    <section id="stories" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 pt-6 md:px-8 md:pt-8">
+    <section id="stories" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 pt-10 md:px-8 md:pt-16">
       <h2 className="text-2xl font-medium">{t.ask}</h2>
       <p className="mt-2 max-w-[62ch] text-base leading-relaxed text-brand-muted">{t.sh}</p>
       <StoriesGrid
