@@ -30,12 +30,22 @@ body {
 .story-card__arrow { transition: transform 180ms ease-out; }
 [dir='rtl'] .story-card__arrow { transform: rotate(180deg); }
 
+/* Informational reassurance cards retain their soft surface until hovered. */
+.landing-main > section:nth-of-type(5) .grid > div,
+.landing-main > section:nth-of-type(5) .grid > div > p { transition: background-color 180ms ease-out, color 180ms ease-out; }
+@media (hover: hover) and (pointer: fine) {
+  .landing-main > section:nth-of-type(5) .grid > div:hover { background-color: #33695D; }
+  .landing-main > section:nth-of-type(5) .grid > div:hover > p { color: #F1F5F4; }
+}
+
 .story-card:focus-visible {
   border-color: #0E6B5C;
   box-shadow: 0 1px 2px rgb(14 107 92 / 0.08);
 }
-.story-card:focus-visible .story-card__panel { background-color: #DCEFE8; }
-.story-card:focus-visible .story-card__panel--scam { background-color: #CFE6DC; }
+.story-card:focus-visible .story-card__panel { background-color: #33695D; }
+.story-card:focus-visible .story-card__panel--scam { background-color: #33695D; }
+.story-card:focus-visible .story-card__panel p,
+.story-card:focus-visible .story-card__panel .story-card__arrow { color: #F1F5F4; }
 .story-card:focus-visible .story-card__arrow { transform: translateX(3px); }
 [dir='rtl'] .story-card:focus-visible .story-card__arrow {
   transform: translateX(-3px) rotate(180deg);
@@ -46,8 +56,10 @@ body {
     border-color: #0E6B5C;
     box-shadow: 0 1px 2px rgb(14 107 92 / 0.08);
   }
-  .story-card:hover .story-card__panel { background-color: #DCEFE8; }
-  .story-card:hover .story-card__panel--scam { background-color: #CFE6DC; }
+  .story-card:hover .story-card__panel { background-color: #33695D; }
+  .story-card:hover .story-card__panel--scam { background-color: #33695D; }
+  .story-card:hover .story-card__panel p,
+  .story-card:hover .story-card__panel .story-card__arrow { color: #F1F5F4; }
   .story-card:hover .story-card__arrow { transform: translateX(3px); }
   [dir='rtl'] .story-card:hover .story-card__arrow {
     transform: translateX(-3px) rotate(180deg);
