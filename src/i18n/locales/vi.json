@@ -186,5 +186,20 @@
   "fLang": "Ngôn ngữ",
   "siteBy": "Website bởi",
   "sAccessibilityH": "Khả năng tiếp cận",
-  "sAccessibilityP": "Sử dụng SafeSpeak bằng điều hướng bàn phím, tính năng thu phóng của trình duyệt, điều khiển cỡ chữ và cài đặt giảm chuyển động. Bạn có thể chọn tiếng Anh, tiếng Ả Rập, tiếng Trung hoặc tiếng Việt bất cứ lúc nào."
+  "sAccessibilityP": "Sử dụng SafeSpeak bằng điều hướng bàn phím, tính năng thu phóng của trình duyệt, điều khiển cỡ chữ và cài đặt giảm chuyển động. Bạn có thể chọn tiếng Anh, tiếng Ả Rập, tiếng Trung hoặc tiếng Việt bất cứ lúc nào.",
+  "tellHeading": "Hãy kể điều đã xảy ra",
+  "tellSupport": "Viết bằng ngôn ngữ của bạn. Chỉ chia sẻ điều bạn cảm thấy thoải mái.",
+  "tellLabel": "Điều gì đã xảy ra?",
+  "tellPlaceholder": "Bắt đầu bằng vài từ…",
+  "tellPrivacy": "Trong bản demo này, lời bạn viết chỉ ở trong trình duyệt và không được gửi đến tổ chức nào.",
+  "tellPrimary": "Xem các lựa chọn ví dụ",
+  "tellClear": "Xóa",
+  "tellBack": "Về trang chủ",
+  "tellCounter": "{count} trên 2.000 ký tự",
+  "tellValidation": "Hãy thêm vài từ trước khi tiếp tục.",
+  "tellExamplesHeading": "Lựa chọn ví dụ",
+  "tellExamplesIntro": "Đây là các ví dụ chung, không phải lời khuyên pháp lý hoặc an toàn cá nhân.",
+  "tellOptionUnderstand": "Hiểu điều đã xảy ra",
+  "tellOptionSupport": "Tìm hỗ trợ",
+  "tellOptionReport": "Lựa chọn báo cáo"
 }

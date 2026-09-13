@@ -18,7 +18,7 @@ export default function Hero({ t, locale }: { t: Dict; locale: string }) {
           <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-brand-muted">{t.sub}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#tell"
+              href={`/${locale}/tell-us`}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3 text-base font-medium text-white transition-opacity duration-150 hover:opacity-90"
             >
               {t.cta1}

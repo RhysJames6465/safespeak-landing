@@ -9,7 +9,7 @@ const steps = [
   { key: 's3', video: '/images/how-it-works-step-3.mp4', poster: '/images/how-it-works-step-3.webp', alt: 'altHowStep3', labels: ['s3Example1', 's3Example2', 's3Example3'] },
 ] as const;
 
-export default function HowItWorksClient({ t }: { t: Dict }) {
+export default function HowItWorksClient({ t, locale }: { t: Dict; locale: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
   const cards = useRef<(HTMLElement | null)[]>([]);
@@ -31,7 +31,7 @@ export default function HowItWorksClient({ t }: { t: Dict }) {
   useEffect(() => { const onVisibility = () => { if (document.hidden) videos.current.forEach((_, i) => stop(i)); }; document.addEventListener('visibilitychange', onVisibility); return () => document.removeEventListener('visibilitychange', onVisibility); }, [stop]);
   const begin = (i: number, deliberate = false) => { if (!sourcesAttached) { pending.current = i; setSourcesAttached(true); return; } play(i, deliberate); };
   return <section ref={sectionRef} id="how" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-14 md:px-8">
-    <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><h2 className="text-2xl font-medium">{t.how}</h2><p className="mt-2 text-sm font-medium text-brand-primary">{t.howMeta}</p></div><a href="#tell" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand-primary px-6 py-3 text-base font-medium text-white transition-opacity duration-150 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none">{t.cta1}</a></div>
+    <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><h2 className="text-2xl font-medium">{t.how}</h2><p className="mt-2 text-sm font-medium text-brand-primary">{t.howMeta}</p></div><a href={`/${locale}/tell-us`} className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand-primary px-6 py-3 text-base font-medium text-white transition-opacity duration-150 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none">{t.cta1}</a></div>
     <p className="mt-7 text-xs font-medium uppercase tracking-[0.12em] text-brand-muted">{t.howIllustrative}</p>
     <div className="mt-4 grid gap-5 md:grid-cols-3">{steps.map((step, index) => { const heading = t[step.key + 't' as keyof Dict] as string; const description = t[step.key + 'ExampleDesc' as keyof Dict] as string; const reassurance = t[step.key + 'r' as keyof Dict] as string; const isActive = active === index; const label = playing === index ? t.howPause : ended.has(index) ? t.howReplay : t.howPlay; return <article key={step.key} ref={node => { cards.current[index] = node; }} className="flex min-w-0 flex-col rounded-2xl border border-brand-border bg-brand-story p-4 sm:p-5">
       <div className="mb-3 flex items-center gap-2.5"><span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-primary text-sm font-medium text-white">{index + 1}</span><h3 className="text-lg font-medium">{heading}</h3></div>

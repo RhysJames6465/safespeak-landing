@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { MicIcon, ArrowIcon } from './Icons';
 import type { Dict } from '@/i18n';
 
-export default function StickyBar({ t }: { t: Dict }) {
+export default function StickyBar({ t, locale }: { t: Dict; locale: string }) {
   const [visible, setVisible] = useState(false);
   const [footerNear, setFooterNear] = useState(false);
 
@@ -36,7 +36,7 @@ export default function StickyBar({ t }: { t: Dict }) {
       }`}
     >
       <a
-        href="#tell"
+        href={`/${locale}/tell-us`}
         tabIndex={hidden ? -1 : undefined}
         className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-3 md:px-8"
       >

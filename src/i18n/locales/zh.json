@@ -186,5 +186,20 @@
   "fLang": "语言",
   "siteBy": "网站制作",
   "sAccessibilityH": "无障碍功能",
-  "sAccessibilityP": "你可以通过键盘导航、浏览器缩放、文字大小控制和减少动态效果设置使用 SafeSpeak。你可以随时选择英语、阿拉伯语、中文或越南语。"
+  "sAccessibilityP": "你可以通过键盘导航、浏览器缩放、文字大小控制和减少动态效果设置使用 SafeSpeak。你可以随时选择英语、阿拉伯语、中文或越南语。",
+  "tellHeading": "告诉我们发生了什么",
+  "tellSupport": "用你的语言书写，只分享你觉得舒适的内容。",
+  "tellLabel": "发生了什么？",
+  "tellPlaceholder": "从几句话开始……",
+  "tellPrivacy": "在此演示中，你的文字只保留在浏览器中，不会发送给任何机构。",
+  "tellPrimary": "查看示例选项",
+  "tellClear": "清除",
+  "tellBack": "返回首页",
+  "tellCounter": "{count} / 2,000 个字符",
+  "tellValidation": "请先输入几句话再继续。",
+  "tellExamplesHeading": "示例选项",
+  "tellExamplesIntro": "这些是一般示例，不是个性化的法律或安全建议。",
+  "tellOptionUnderstand": "了解发生了什么",
+  "tellOptionSupport": "寻找支持",
+  "tellOptionReport": "报告选项"
 }

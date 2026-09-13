@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Atkinson_Hyperlegible } from 'next/font/google';
-import { locales, dir, type Locale } from '@/i18n';
+import { locales, dir, langTag, type Locale } from '@/i18n';
 import '../globals.css';
 
 const body = Atkinson_Hyperlegible({
@@ -35,7 +35,7 @@ export default function RootLayout({
   params: { lang: Locale };
 }) {
   return (
-    <html lang={params.lang} dir={dir(params.lang)} className={body.variable}>
+    <html lang={langTag(params.lang)} dir={dir(params.lang)} className={body.variable}>
       <body className="font-sans">{children}</body>
     </html>
   );

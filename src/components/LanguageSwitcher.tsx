@@ -15,12 +15,12 @@ export const languageOptions: LanguageOption[] = [
   { code: 'en', native: 'English (Australia)', english: 'English', available: true },
   { code: 'ar', native: 'العربية', english: 'Arabic', available: true, direction: 'rtl' },
   { code: 'zh', native: '中文（普通话）', english: 'Mandarin Chinese', available: true },
-  { code: 'yue', native: '廣東話', english: 'Cantonese', available: false },
+  { code: 'yue', native: '廣東話', english: 'Cantonese', available: true },
   { code: 'vi', native: 'Tiếng Việt', english: 'Vietnamese', available: true },
-  { code: 'pa', native: 'ਪੰਜਾਬੀ', english: 'Punjabi', available: false },
-  { code: 'hi', native: 'हिन्दी', english: 'Hindi', available: false },
-  { code: 'ne', native: 'नेपाली', english: 'Nepali', available: false },
-  { code: 'el', native: 'Ελληνικά', english: 'Greek', available: false },
+  { code: 'pa', native: 'ਪੰਜਾਬੀ', english: 'Punjabi', available: true },
+  { code: 'hi', native: 'हिन्दी', english: 'Hindi', available: true },
+  { code: 'ne', native: 'नेपाली', english: 'Nepali', available: true },
+  { code: 'el', native: 'Ελληνικά', english: 'Greek', available: true },
 ];
 
 const fallbackMessage = 'This language is shown for the client demo. The translated site is not available yet.';
