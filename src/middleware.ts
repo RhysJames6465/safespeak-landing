@@ -11,4 +11,4 @@ export function middleware(req: NextRequest) {
   return NextResponse.redirect(new URL(`/${detected}${pathname}`, req.url));
 }
 
-export const config = { matcher: ['/((?!api|_next|images|favicon.svg).*)'] };
+export const config = { matcher: ['/((?!api|_next|images|logo|favicon.svg).*)'] };

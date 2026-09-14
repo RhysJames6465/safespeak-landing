@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Atkinson_Hyperlegible } from 'next/font/google';
 import { locales, dir, type Locale } from '@/i18n';
 import '../globals.css';
@@ -25,6 +25,19 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     type: 'website',
   },
+  icons: {
+    icon: [
+      { url: '/logo/favicon.svg', type: 'image/svg+xml' },
+      { url: '/logo/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: ['/logo/favicon.ico'],
+    apple: ['/logo/apple-touch-icon.png'],
+  },
+  manifest: '/logo/site.webmanifest',
+};
+
+export const viewport: Viewport = {
+  themeColor: '#33695D',
 };
 
 export default function RootLayout({
@@ -36,6 +49,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang} dir={dir(params.lang)} className={body.variable}>
+      <head>
+        <link rel="mask-icon" href="/logo/safari-pinned-tab.svg" color="#33695D" />
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   );

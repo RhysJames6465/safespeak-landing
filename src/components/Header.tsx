@@ -1,4 +1,4 @@
-import { ExitIcon, ListIcon, ShieldIcon } from './Icons';
+import { ExitIcon, ListIcon } from './Icons';
 import LangSwitcher from './LanguageSwitcher';
 import type { Dict } from '@/i18n';
 
@@ -8,11 +8,11 @@ export default function Header({ t, locale }: { t: Dict; locale: string }) {
       <div className="mx-auto flex min-h-[4.5rem] max-w-6xl flex-wrap items-center gap-3 gap-y-1 px-5 py-3 md:min-h-[6.25rem] md:gap-6 md:px-8 md:py-4">
         <a
           href={`/${locale}`}
-          className="flex min-h-11 flex-none items-center gap-2 text-xl font-medium text-brand-primary focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:w-[18rem] md:text-2xl"
+          className="flex min-h-11 flex-none items-center focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:w-[18rem]"
           aria-label="SafeSpeak home"
         >
-          <ShieldIcon className="h-8 w-8 md:h-10 md:w-10" />
-          SafeSpeak
+          <img src="/logo/safespeak-lockup-green.svg" alt="SafeSpeak" width="240" height="46" className="hidden h-auto w-[9.5rem] sm:block md:w-[13rem]" />
+          <img src="/logo/safespeak-symbol-green.svg" alt="" width="323" height="280" className="h-8 w-auto sm:hidden" aria-hidden="true" />
         </a>
         <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 text-sm text-brand-muted lg:flex xl:gap-7" aria-label="Sections">
           <a href="#stories" className="rounded-md px-1 py-2 transition-colors duration-150 hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none">{t.ask}</a>
@@ -20,7 +20,7 @@ export default function Header({ t, locale }: { t: Dict; locale: string }) {
           <a href={`/${locale}/support`} className="rounded-md px-1 py-2 transition-colors duration-150 hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none">{t.cta2}</a>
           <a href="#about" className="rounded-md px-1 py-2 transition-colors duration-150 hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary motion-reduce:transition-none">{t.f1}</a>
         </nav>
-        <div className="ms-auto flex flex-none items-center gap-2 max-sm:basis-full max-sm:justify-end md:gap-3">
+        <div className="sm:ms-auto flex flex-none items-center gap-2 max-sm:basis-full max-sm:justify-end md:gap-3">
           <LangSwitcher locale={locale} />
           <a
             href="https://www.google.com"

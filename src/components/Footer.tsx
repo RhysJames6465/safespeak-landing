@@ -1,4 +1,4 @@
-import { ShieldIcon, PhoneIcon, ExitIcon } from './Icons';
+import { PhoneIcon, ExitIcon } from './Icons';
 import type { Dict } from '@/i18n';
 
 const linkCls =
@@ -15,10 +15,9 @@ export default function Footer({ t, locale }: { t: Dict; locale: string }) {
         <div className="order-1 self-start">
           <a
             href={`/${locale}`}
-            className="inline-flex min-h-[44px] items-center gap-2 text-xl font-medium text-brand-primary focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+            className="inline-flex min-h-[44px] items-center focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           >
-            <ShieldIcon className="h-7 w-7" />
-            SafeSpeak
+            <img src="/logo/safespeak-lockup-green.svg" alt="SafeSpeak" width="240" height="46" className="h-auto w-[11rem]" />
           </a>
           <p className="mt-6 max-w-[30ch] text-sm leading-6 text-brand-muted">{t.fBrandP}</p>
         </div>

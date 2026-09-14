@@ -66,6 +66,65 @@ body {
   }
 }
 
+/* Support-page cards use the same calm interaction language as story cards. */
+.support-audience-card {
+  display: flex;
+  flex-direction: column;
+  transition: border-color 180ms ease-out;
+}
+.support-audience-panel { flex: 1; }
+.support-audience-panel,
+.support-audience-action,
+.support-audience-panel h3,
+.support-audience-panel p {
+  transition: background-color 180ms ease-out, color 180ms ease-out;
+}
+.support-audience-arrow { transition: transform 180ms ease-out; }
+[dir='rtl'] .support-audience-arrow { transform: rotate(180deg); }
+.support-audience-card:focus-visible { border-color: #33695D; }
+.support-audience-card:focus-visible .support-audience-panel { background-color: #33695D; }
+.support-audience-card:focus-visible .support-audience-panel h3,
+.support-audience-card:focus-visible .support-audience-panel p,
+.support-audience-card:focus-visible .support-audience-action { color: #F1F5F4; }
+.support-audience-card:focus-visible .support-audience-arrow { transform: translateX(3px); }
+[dir='rtl'] .support-audience-card:focus-visible .support-audience-arrow { transform: translateX(-3px) rotate(180deg); }
+
+@media (hover: hover) and (pointer: fine) {
+  .support-audience-card:hover { border-color: #33695D; }
+  .support-audience-card:hover .support-audience-panel { background-color: #33695D; }
+  .support-audience-card:hover .support-audience-panel h3,
+  .support-audience-card:hover .support-audience-panel p,
+  .support-audience-card:hover .support-audience-action { color: #F1F5F4; }
+  .support-audience-card:hover .support-audience-arrow { transform: translateX(3px); }
+  [dir='rtl'] .support-audience-card:hover .support-audience-arrow { transform: translateX(-3px) rotate(180deg); }
+}
+
+.support-question {
+  transition: border-color 180ms ease-out, background-color 180ms ease-out;
+}
+.support-question-number { transition: background-color 180ms ease-out, color 180ms ease-out; }
+.support-question:focus-within,
+.support-question[open] { border-color: #33695D; background-color: #DCEFE8; }
+.support-question:focus-within .support-question-number,
+.support-question[open] .support-question-number { background-color: #33695D; color: #F1F5F4; }
+
+.support-legal-row {
+  flex-wrap: wrap;
+  transition: border-color 180ms ease-out, background-color 180ms ease-out;
+}
+.support-legal-indicator { display: inline-block; transition: color 180ms ease-out, transform 180ms ease-out; }
+.support-legal-row:focus-visible { border-color: #33695D; background-color: #DCEFE8; }
+.support-legal-row:focus-visible .support-legal-indicator { color: #33695D; transform: translateX(3px); }
+[dir='rtl'] .support-legal-row:focus-visible .support-legal-indicator { transform: translateX(-3px); }
+
+@media (hover: hover) and (pointer: fine) {
+  .support-question:hover { border-color: #33695D; background-color: #DCEFE8; }
+  .support-question:hover .support-question-number { background-color: #33695D; color: #F1F5F4; }
+  .support-legal-row:hover { border-color: #33695D; background-color: #DCEFE8; }
+  .support-legal-row:hover .support-legal-indicator { color: #33695D; transform: translateX(3px); }
+  [dir='rtl'] .support-legal-row:hover .support-legal-indicator { transform: translateX(-3px); }
+}
+
 /* Consistent warm grade on band + hero */
 .grade-warm img { filter: saturate(.98) sepia(.06); }
 
@@ -140,4 +199,12 @@ details.pw-payoff { border-color: #0E6B5C; background-color: #E4F0EC; }
   [dir='rtl'] .story-card:focus-visible .story-card__arrow {
     transform: rotate(180deg);
   }
+  .support-audience-card:hover .support-audience-arrow,
+  .support-audience-card:focus-visible .support-audience-arrow,
+  .support-legal-row:hover .support-legal-indicator,
+  .support-legal-row:focus-visible .support-legal-indicator,
+  [dir='rtl'] .support-legal-row:hover .support-legal-indicator,
+  [dir='rtl'] .support-legal-row:focus-visible .support-legal-indicator { transform: none; }
+  [dir='rtl'] .support-audience-card:hover .support-audience-arrow,
+  [dir='rtl'] .support-audience-card:focus-visible .support-audience-arrow { transform: rotate(180deg); }
 }
